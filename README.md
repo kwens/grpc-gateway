@@ -3,11 +3,11 @@
 <p>
 gRPC to JSON proxy generator following the gRPC HTTP spec
 </p>
-<a href="https://github.com/grpc-ecosystem/grpc-gateway/actions/workflows/main.yml"><img src="https://img.shields.io/github/workflow/status/grpc-ecosystem/grpc-gateway/main?color=379c9c&label=build&logo=github&logoColor=ffffff&style=flat-square"/></a>
+<a href="https://github.com/kwens/grpc-gateway/actions/workflows/main.yml"><img src="https://img.shields.io/github/workflow/status/kwens/grpc-gateway/main?color=379c9c&label=build&logo=github&logoColor=ffffff&style=flat-square"/></a>
 <a href="https://app.slack.com/client/T029RQSE6/CBATURP1D"><img src="https://img.shields.io/badge/slack-grpc--gateway-379c9c?logo=slack&logoColor=ffffff&style=flat-square"/></a>
-<a href="https://github.com/grpc-ecosystem/grpc-gateway/blob/main/LICENSE.txt"><img src="https://img.shields.io/github/license/grpc-ecosystem/grpc-gateway?color=379c9c&style=flat-square"/></a>
-<a href="https://github.com/grpc-ecosystem/grpc-gateway/releases"><img src="https://img.shields.io/github/v/release/grpc-ecosystem/grpc-gateway?color=379c9c&logoColor=ffffff&style=flat-square"/></a>
-<a href="https://github.com/grpc-ecosystem/grpc-gateway/stargazers"><img src="https://img.shields.io/github/stars/grpc-ecosystem/grpc-gateway?color=379c9c&style=flat-square"/></a>
+<a href="https://github.com/kwens/grpc-gateway/blob/main/LICENSE.txt"><img src="https://img.shields.io/github/license/kwens/grpc-gateway?color=379c9c&style=flat-square"/></a>
+<a href="https://github.com/kwens/grpc-gateway/releases"><img src="https://img.shields.io/github/v/release/kwens/grpc-gateway?color=379c9c&logoColor=ffffff&style=flat-square"/></a>
+<a href="https://github.com/kwens/grpc-gateway/stargazers"><img src="https://img.shields.io/github/stars/kwens/grpc-gateway?color=379c9c&style=flat-square"/></a>
 <a href="https://slsa.dev/images/gh-badge-level3.svg"><img src="https://slsa.dev/images/gh-badge-level3.svg"/></a>
 
 </div>
@@ -31,7 +31,7 @@ This helps you provide your APIs in both gRPC and RESTful style at the same time
 
 You can read our docs at:
 
-- https://grpc-ecosystem.github.io/grpc-gateway/
+- https://kwens.github.io/grpc-gateway/
 
 ## Testimonials
 
@@ -70,8 +70,8 @@ to track the versions of the following executable packages:
 package tools
 
 import (
-    _ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway"
-    _ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2"
+    _ "github.com/kwens/grpc-gateway/v2/protoc-gen-grpc-gateway"
+    _ "github.com/kwens/grpc-gateway/v2/protoc-gen-openapiv2"
     _ "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
     _ "google.golang.org/protobuf/cmd/protoc-gen-go"
 )
@@ -81,8 +81,8 @@ Run `go mod tidy` to resolve the versions. Install by running
 
 ```sh
 $ go install \
-    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
-    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+    github.com/kwens/grpc-gateway/v2/protoc-gen-grpc-gateway \
+    github.com/kwens/grpc-gateway/v2/protoc-gen-openapiv2 \
     google.golang.org/protobuf/cmd/protoc-gen-go \
     google.golang.org/grpc/cmd/protoc-gen-go-grpc
 ```
@@ -98,13 +98,13 @@ Make sure that your `$GOBIN` is in your `$PATH`.
 
 ### Download the binaries
 
-You may alternatively download the binaries from the [GitHub releases page](https://github.com/grpc-ecosystem/grpc-gateway/releases/latest).
+You may alternatively download the binaries from the [GitHub releases page](https://github.com/kwens/grpc-gateway/releases/latest).
 We generate [SLSA3 signatures](slsa.dev) using the OpenSSF's [slsa-framework/slsa-github-generator](https://github.com/slsa-framework/slsa-github-generator) during the release process. To verify a release binary:
 1. Install the verification tool from [slsa-framework/slsa-verifier#installation](https://github.com/slsa-framework/slsa-verifier#installation).
-2. Download the provenance file `attestation.intoto.jsonl` from the [GitHub releases page](https://github.com/grpc-ecosystem/grpc-gateway/releases/latest).
+2. Download the provenance file `attestation.intoto.jsonl` from the [GitHub releases page](https://github.com/kwens/grpc-gateway/releases/latest).
 3. Run the verifier:
 ```shell
-slsa-verifier -artifact-path <the-binary> -provenance attestation.intoto.jsonl -source github.com/grpc-ecosystem/grpc-gateway -tag <the-tag>
+slsa-verifier -artifact-path <the-binary> -provenance attestation.intoto.jsonl -source github.com/kwens/grpc-gateway -tag <the-tag>
 ```
 
 Alternatively, see the section on remotely managed plugin versions below.
@@ -304,7 +304,7 @@ Alternatively, see the section on remotely managed plugin versions below.
       If you do not want to (or cannot) modify the proto file for use with gRPC-Gateway you can
       alternatively use an external
       [gRPC Service Configuration](https://cloud.google.com/endpoints/docs/grpc/grpc-service-config) file.
-      [Check our documentation](https://grpc-ecosystem.github.io/grpc-gateway/docs/mapping/grpc_api_configuration/)
+      [Check our documentation](https://kwens.github.io/grpc-gateway/docs/mapping/grpc_api_configuration/)
       for more information. This is best combined with the `standalone=true` option
       to generate a file that can live in its own package, separate from the files
       generated by the source protobuf file.
@@ -352,7 +352,7 @@ Alternatively, see the section on remotely managed plugin versions below.
      "net/http"
 
      "github.com/golang/glog"
-     "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+     "github.com/kwens/grpc-gateway/v2/runtime"
      "google.golang.org/grpc"
      "google.golang.org/grpc/credentials/insecure"
 
@@ -418,14 +418,14 @@ Alternatively, see the section on remotely managed plugin versions below.
 
    To use the custom protobuf annotations supported by `protoc-gen-openapiv2`, we need
    another dependency added to our protobuf generation step. If you are using
-   `buf`, you can add the `buf.build/grpc-ecosystem/grpc-gateway` dependency
+   `buf`, you can add the `buf.build/kwens/grpc-gateway` dependency
    to your `deps` array:
    ```yaml
    version: v1
    name: buf.build/yourorg/myprotos
    deps:
      - buf.build/googleapis/googleapis
-     - buf.build/grpc-ecosystem/grpc-gateway
+     - buf.build/kwens/grpc-gateway
    ```
 
    With `protoc` (just the swagger file):
@@ -453,7 +453,7 @@ Alternatively, see the section on remotely managed plugin versions below.
    part of the path parameter as that is what OpenAPI defines in the specification.  To allow gRPC gateway to
    accept the URL encoded slash and still route the request, use the UnescapingModeAllCharacters or
    UnescapingModeLegacy (which is the default currently though may change in future versions). See
-   [Customizing Your Gateway](https://grpc-ecosystem.github.io/grpc-gateway/docs/mapping/customizing_your_gateway/)
+   [Customizing Your Gateway](https://kwens.github.io/grpc-gateway/docs/mapping/customizing_your_gateway/)
    for more information.
 
 ## Usage with remote plugins
@@ -474,11 +474,11 @@ plugins:
     out: gen/go
     opt:
       - paths=source_relative
-  - remote: buf.build/grpc-ecosystem/plugins/grpc-gateway:v2.6.0-1
+  - remote: buf.build/kwens/plugins/grpc-gateway:v2.6.0-1
     out: gen/go
     opt:
       - paths=source_relative
-  - remote: buf.build/grpc-ecosystem/plugins/openapiv2:v2.6.0-1
+  - remote: buf.build/kwens/plugins/openapiv2:v2.6.0-1
     out: gen/openapiv2
 ```
 
@@ -486,12 +486,12 @@ This requires no local installation of any plugins. Be careful to use the same
 version of the generator as the runtime library, i.e. if using `v2.6.0-1`, run
 
 ```shell
-$ go get github.com/grpc-ecosystem/grpc-gateway/v2@v2.6.0
+$ go get github.com/kwens/grpc-gateway/v2@v2.6.0
 ```
 
 To get the same version of the runtime in your `go.mod`.
 
-Note that usage of remote plugins is incompatible with usage of external configuration files like [grpc_api_configuration](https://grpc-ecosystem.github.io/grpc-gateway/docs/mapping/grpc_api_configuration/#using-an-external-configuration-file).
+Note that usage of remote plugins is incompatible with usage of external configuration files like [grpc_api_configuration](https://kwens.github.io/grpc-gateway/docs/mapping/grpc_api_configuration/#using-an-external-configuration-file).
 
 ## Video intro
 
@@ -576,7 +576,7 @@ gRPC-Gateway, and a gRPC server, see
 - Partial support for [gRPC API Configuration](https://cloud.google.com/endpoints/docs/grpc/grpc-service-config)
   files as an alternative to annotation.
 - Automatically translating PATCH requests into Field Mask gRPC requests. See
-  [the docs](https://grpc-ecosystem.github.io/grpc-gateway/docs/mapping/patch_feature/)
+  [the docs](https://kwens.github.io/grpc-gateway/docs/mapping/patch_feature/)
   for more information.
 
 ### No plan to support
@@ -590,7 +590,7 @@ But patches are welcome.
 
 ## Mapping gRPC to HTTP
 
-- [How gRPC error codes map to HTTP status codes in the response](https://github.com/grpc-ecosystem/grpc-gateway/blob/main/runtime/errors.go#L15).
+- [How gRPC error codes map to HTTP status codes in the response](https://github.com/kwens/grpc-gateway/blob/main/runtime/errors.go#L15).
 - HTTP request source IP is added as `X-Forwarded-For` gRPC request header.
 - HTTP request host is added as `X-Forwarded-Host` gRPC request header.
 - HTTP `Authorization` header is added as `authorization` gRPC request header.
@@ -607,9 +607,9 @@ But patches are welcome.
 
 ## Contribution
 
-See [CONTRIBUTING.md](http://github.com/grpc-ecosystem/grpc-gateway/blob/main/CONTRIBUTING.md).
+See [CONTRIBUTING.md](http://github.com/kwens/grpc-gateway/blob/main/CONTRIBUTING.md).
 
 ## License
 
 gRPC-Gateway is licensed under the BSD 3-Clause License.
-See [LICENSE.txt](https://github.com/grpc-ecosystem/grpc-gateway/blob/main/LICENSE.txt) for more details.
+See [LICENSE.txt](https://github.com/kwens/grpc-gateway/blob/main/LICENSE.txt) for more details.
