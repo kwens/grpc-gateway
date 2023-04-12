@@ -1077,6 +1077,17 @@ func renderServices(services []*descriptor.Service, paths openapiPathsObject, re
 		if !isVisible(getServiceVisibilityOption(svc), reg) {
 			continue
 		}
+		var pathPrefix string
+		for _, loc := range svc.File.SourceCodeInfo.Location {
+			if loc.LeadingComments != nil {
+				c := *loc.LeadingComments
+				exp := fmt.Sprintf("@%s=(.*?)\n", "prefix")
+				re := regexp.MustCompile(exp)
+				comments := re.FindStringSubmatch(string(c))
+				pathPrefix = comments[len(comments)-1]
+				break
+			}
+		}
 
 		for methIdx, meth := range svc.Methods {
 			if !isVisible(getMethodVisibilityOption(meth), reg) {
@@ -1284,6 +1295,9 @@ func renderServices(services []*descriptor.Service, paths openapiPathsObject, re
 				parameters = append(parameters, queryParams...)
 
 				path := partsToOpenAPIPath(parts, pathParamNames)
+				if len(pathPrefix) > 0 {
+					path = fmt.Sprintf("%s%s", pathPrefix, path)
+				}
 				pathItemObject, ok := paths[path]
 				if !ok {
 					pathItemObject = openapiPathItemObject{}
